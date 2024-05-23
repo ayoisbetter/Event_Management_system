@@ -1,0 +1,52 @@
+.image_container {
+    display: flex;
+}
+
+.image_container a {
+    margin-right: auto;
+    position: relative; /* Create positioning context */
+    display: block; /* Ensure the anchor tag is treated as a block element */
+    overflow: hidden; /* Ensure the scaling effect stays within bounds */
+}
+
+.image_container a img {
+    width: 300px;
+    height: auto;
+    transition: transform 0.3s ease;
+    display: block; /* Remove any default spacing */
+    border-radius: 5px;
+}
+
+.image-wrapper:hover img {
+    transform: scale(1.1); /* Scale the image */
+}
+
+.image-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with opacity */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.image-wrapper:hover::after {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.image-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the text */
+    color: white;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 5px; /* Optional: make the text box look nicer */
+}
+
+
